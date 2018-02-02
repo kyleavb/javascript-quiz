@@ -1,8 +1,7 @@
 var correctA;
 var qCount = 1;
-var curCount = 0
 var playerScore = 0;
-var globalQuestions = [];
+var apiReturn = [];
 
 function dc(str){
   console.log(str);
@@ -13,15 +12,15 @@ function fetchQuestions(){
   var numCategory = $('.catselect').val();
   var difficulty = $('input[name=options]:checked', "#setup").val();
   var apiConstruct = "https://opentdb.com/api.php?amount=" + numOfQuestions + "&category=" + numCategory + "&difficulty=" + difficulty + "&type=multiple";
-  $.get(apiConstruct).done(function(apiResults){
-    globalQuestions = apiResults;
+  $.get(apiConstruct).done(function(result){
+    apiReturn = result;
     createCard();
   });
 }
 
 function createCard(){
   $('.question-card').fadeTo(1000, 1);
-  var curQuestion = globalQuestions.results[curCount];
+  var curQuestion = apiReturn.results[qCount-1];
   var optionsArray = [];
   correctA = curQuestion.correct_answer;
   for(var i=0;i<curQuestion.incorrect_answers.length; i++){
@@ -31,29 +30,37 @@ function createCard(){
   optionsArray = shuffle(optionsArray);
   $('#current-score span').text(playerScore);
   $('#question-text').text(curQuestion.question);
-  $('#total-questions').text(globalQuestions.results.length);
+  $('#total-questions').text(apiReturn.results.length);
   $('#current-questions').text(qCount);
   optionsArray.forEach(function(item) {
-    $('#answer-options').append($('<label><input type="radio" name="answer-options" value="' + item + '"/>' + item + ' </label>'))
+    $('#answer-options').append($('<div class="col"><label class="btn btn-secondary"><input type="radio" name="answer-options" value="' + item + '"/>' + item + ' </label></div>'));
   });
 
 }
 
 function submitCard(){
   $('.question-card').fadeTo(500, 0);
-  setTimeout(function(){
+  setTimeout(function(){//card timeout
     var subAnswer = $('input[name=answer-options]:checked').val();
-    if(subAnswer === correctA){
+    if(subAnswer === correctA){//Correct Answer location
       playerScore += 100;
+      $('#pop-up').css('background', 'rgba(8,255,8,.7)')
       $('#pop-up-container').css('display', 'flex').fadeTo(500, 1);
-      $('#pop-up h2').text('Your Correct!')
+      $('#pop-up h2').text('Your Correct!');
+      setTimeout(function() {
+        $('#pop-up-container').css('display', 'none').fadeTo(200, 0);
+      }, 700);
+    }else{//Incorrect answer
+      playerScore -= 50;
+      $('#pop-up').css('background', 'rgba(255,8,8,.7)')
+      $('#pop-up-container').css('display', 'flex').fadeTo(500, 1);
+      $('#pop-up h2').text('Your DUMB AS FUCK!');
       setTimeout(function() {
         $('#pop-up-container').css('display', 'none').fadeTo(200, 0);
       }, 700);
     }
-    curCount += 1;
     qCount += 1;
-    if (curCount === globalQuestions.results.length - 1) {
+    if (qCount-1 === apiReturn.results.length - 1) {
       $('#next-btn').hide();
       $('#submit-btn').show();
     }
@@ -63,13 +70,12 @@ function submitCard(){
 }
 
 function submitScore() {
-  correctA;
-  qCount = 1;
-  curCount = 0
-  globalQuestions = [];
   $('#answer-options').empty();
   $('#question-text').text(playerScore);
   playerScore = 0;
+  correctA;
+  qCount = 1;
+  apiReturn = [];
 }
 
 function shuffle(array) {
@@ -86,7 +92,6 @@ function shuffle(array) {
 }
 
 $(document).ready(function(){
-
   $('#submit-btn').on('click',submitScore);
   $('#next-btn').on('click',submitCard);
   $('.sub').on('click', function(e){
