@@ -31,7 +31,7 @@ function createCard(){
   optionsArray = shuffle(optionsArray);
   dc(optionsArray)
   $('#current-score span').text(playerScore);
-  $('#question-text').text(curQuestion.question);
+  $('#question-text').html(curQuestion.question);
   $('#total-questions').text(apiReturn.results.length);
   $('#current-questions').text(qCount);
   optionsArray.forEach(function(item) {
