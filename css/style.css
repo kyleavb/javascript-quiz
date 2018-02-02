@@ -37,17 +37,38 @@ input.sub {
     padding: 5px 15px;
 }
 
-input[type=number], select {
+input[type="number"], select {
   margin-left: 5px;
 }
 
-#answer-options input[type=radio] {
-  visibility: hidden;
+#answer-options input[type="radio"] {
+  margin-right: 5px;
 }
 #answer-options label {
-  background: #333;
+  /* background: #333; */
   margin: 0 5px;
+
 }
+
+label.btn-secondary {
+    color: #fff;
+    background-color: #0b97be;
+    border-color: #0b97be;
+}
+
+input[type="radio"]:checked+label.btn-secondary {
+  background: #000;
+}
+
+#answer-options .col {
+  display: flex;
+  justify-content: center;
+}
+
+#answer-options {
+  margin: 40px 20px;
+}
+
 #question-text {
   text-align: center;
 }
@@ -68,9 +89,12 @@ h3#current-score {
   display: none;
 }
 
+#next-btn {
+  display: block;
+}
+
 #next-btn, #submit-btn {
   margin: 20px auto 0px;
-  display: block;
   background: #6e42cb;
   color: #fff;
   padding: 5px 50px;
