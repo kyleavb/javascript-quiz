@@ -5,11 +5,77 @@ form.form-inline {
   justify-content: space-between;
 }
 
+.container:first-child {
+  padding: 7px 15px;
+  background: #0a98be;
+  color: #fff;
+}
+
+.btn-secondary {
+  color: #eaeaea;
+  background-color: #9a8cb7;
+  border-color: #786a96;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: #7046c3;
+  border-color: #5f3ea0;
+}
+
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #6e42cb;
+  border-color: #5d3ba6;
+}
+
+input.sub {
+    border-radius: 3px;
+    border: none;
+    background: #000;
+    color: #fff;
+    padding: 5px 15px;
+}
+
+input[type=number], select {
+  margin-left: 5px;
+}
+
+#answer-options input[type=radio] {
+  visibility: hidden;
+}
+#answer-options label {
+  background: #333;
+  margin: 0 5px;
+}
+#question-text {
+  text-align: center;
+}
+
+.question-card {
+  display: none;
+  background: #f1f1f1;
+  padding: 30px 10px;
+  margin-top: 15vh;
+  border-radius: 4px;
+}
+
+h3#current-score {
+    float: right;
+}
+
 #submit-btn {
   display: none;
 }
-.question-card{
-  display: none;
+
+#next-btn, #submit-btn {
+  margin: 20px auto 0px;
+  display: block;
+  background: #6e42cb;
+  color: #fff;
+  padding: 5px 50px;
+  border: none;
+  border-radius: 3px;
 }
 
 #pop-up {
@@ -18,7 +84,7 @@ form.form-inline {
   height: 300px;
   align-items: center;
   justify-content: center;
-  background: rgba(100, 255, 100, .75);
+  background: rgba(8, 255, 8, .7);
   border-radius: 8px;
   z-index: 100;
 }
