@@ -1,0 +1,33 @@
+html, body {
+  height: 100%;
+}
+form.form-inline {
+  justify-content: space-between;
+}
+
+#submit-btn {
+  display: none;
+}
+.question-card{
+  display: none;
+}
+
+#pop-up {
+  display: flex;
+  width: 500px;
+  height: 300px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(100, 255, 100, .75);
+  border-radius: 8px;
+  z-index: 100;
+}
+
+#pop-up-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}

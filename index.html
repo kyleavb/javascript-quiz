@@ -2,9 +2,90 @@
 <html>
 <head>
   <title>JavaScript Quiz</title>
-  <script src="/js/index.js" type="text/javascript"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+
 </head>
 <body>
-  <h1>Hello world!</h1>
+
+  <div class="container"> <!-- BEGIN FORM CONTAINER -->
+    <div class="row">
+        <div class="col">
+          <form class="form-inline" id="setup">
+            <div>
+              <label for="num-of-questions"># of ?'s
+                <input type="number" name="num-of-questions" id="num-of-questions" />
+              </label>
+            </div>
+            <div style="width:100px;">
+              <label for="category">Category
+                <select class="form-control catselect" id="category">
+                  <option value=27>Animals</option>
+                  <option value=9>General Knowledge</option>
+                  <option value=11>Movies</option>
+                  <option value=12>Music</option>
+                  <option value=21>Sports</option>
+                  <option value=15>Video Games</option>
+                </select>
+              </label>
+            </div>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary active">
+                <input type="radio" name="options" value="easy" autocomplete="off" checked> Easy
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" value="medium" autocomplete="off"> Medium
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" value="hard" autocomplete="off"> Hard
+              </label>
+            </div>
+            <input class="sub" type="submit" value="Start My Quiz" />
+        </form>
+      </div>
+  </div> <!-- END FORM CONTAINER -->
+
+  <div class="container question-card">
+    <div class="row">
+      <div class="col">
+        <h3 id="question-counter">Question <span id="current-questions"></span> of <span id="total-questions"></span></h3>
+      </div>
+      <div class="col">
+        <h3 id="current-score">Score: <span></span></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2 id="question-text"></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" id="answer-options">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button id="next-btn">Next</button>
+        <button id="submit-btn">Submit Quiz</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <div id="pop-up-container">
+    <div id="pop-up">
+      <h2>thing</h2>
+    </div>
+  </div>
+
+
+
+  <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+  <script type="text/JavaScript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="js/index.js" type="text/javascript"></script>
 </body>
 </html>
