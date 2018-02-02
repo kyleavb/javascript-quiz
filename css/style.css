@@ -116,7 +116,7 @@ h3#current-score {
 #pop-up-container {
   height: 100%;
   width: 100%;
-  display: flex;
+  position: absolute;
   justify-content: center;
   align-items: center;
   display: none;

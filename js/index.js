@@ -47,18 +47,18 @@ function submitCard(){
     if(subAnswer === correctA){//Correct Answer location
       playerScore += 100;
       $('#pop-up').css('background', 'rgba(8,255,8,.7)')
-      $('#pop-up-container').css('display', 'flex').fadeTo(500, 1);
+      $('#pop-up-container').css('display', 'flex');
       $('#pop-up h2').text('Your Correct!');
       setTimeout(function() {
-        $('#pop-up-container').css('display', 'none').fadeTo(200, 0);
+        $('#pop-up-container').css('display', 'none');
       }, 700);
     }else{//Incorrect answer
       playerScore -= 50;
       $('#pop-up').css('background', 'rgba(255,8,8,.7)')
-      $('#pop-up-container').css('display', 'flex').fadeTo(500, 1);
+      $('#pop-up-container').css('display', 'flex');
       $('#pop-up h2').text('Your DUMB AS FUCK!');
       setTimeout(function() {
-        $('#pop-up-container').css('display', 'none').fadeTo(200, 0);
+        $('#pop-up-container').css('display', 'none');
       }, 700);
     }
     qCount += 1;
