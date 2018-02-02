@@ -27,7 +27,9 @@ function createCard(){
     optionsArray.push(curQuestion.incorrect_answers[i]);
   }
   optionsArray.push(curQuestion.correct_answer);
+  dc(optionsArray)
   optionsArray = shuffle(optionsArray);
+  dc(optionsArray)
   $('#current-score span').text(playerScore);
   $('#question-text').text(curQuestion.question);
   $('#total-questions').text(apiReturn.results.length);
@@ -62,7 +64,7 @@ function submitCard(){
     qCount += 1;
     if (qCount-1 === apiReturn.results.length - 1) {
       $('#next-btn').hide();
-      $('#submit-btn').show();
+      $('#submit-btn').css('display', 'block');
     }
     $('#answer-options').empty();
     createCard();
